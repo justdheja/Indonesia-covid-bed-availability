@@ -35,7 +35,7 @@ export default function Home({ dataProvince }) {
 	return (
 		<div>
 			<h1 className="text-center text-xl font-bold mb-2">
-				Ketersediaan Ruang Isolasi COVID-19 di Rumah Sakit Indonesia
+				Ketersediaan Kamar Pasien COVID-19 Rumah Sakit Indonesia
 			</h1>
 
 			<select
