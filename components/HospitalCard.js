@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const HospitalCard = ({ hospital }) => {
 	return (
 		<div className="rounded bg-white text-black shadow-lg my-2 p-2 ">
@@ -8,7 +10,12 @@ const HospitalCard = ({ hospital }) => {
 			<p className="">Telepon: {hospital.phone ? hospital.phone : '-'}</p>
 			<p className=" mt-2 text-sm text-gray-500">{hospital.info}</p>
 			{hospital.phone && (
-				<div className="flex mt-2">
+				<div className="flex mt-2 space-x-2 w-full">
+					<Link href={`/hospital/${hospital.id}`}>
+						<a className="rounded text-white p-2 bg-blue-500 flex-grow text-center font-semibold">
+							Detail
+						</a>
+					</Link>
 					<a
 						href={`tel:${hospital.phone}`}
 						className="rounded p-2 text-white bg-green-500"
