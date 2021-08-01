@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
+import HospitalList from '../components/Hospitals';
 
 export const getStaticProps = async () => {
 	const urlProvince = 'https://rs-bed-covid-api.vercel.app/api/get-provinces';
-
 	let resProvince = await (await fetch(urlProvince)).json();
-
 	return {
 		props: {
 			dataProvince: resProvince,
@@ -36,14 +35,17 @@ export default function Home({ dataProvince }) {
 	return (
 		<div>
 			<h1 className="text-center text-2xl font-bold mb-2">
-				Indonesia Covid-19 Bed Availibility
+				Indonesia Covid-19 Bed Availability
 			</h1>
 
 			<select
 				name="province"
 				id="province"
 				className="border-2 border-black w-full rounded-lg bg-gray-100 p-1 my-2"
-				onChange={(e) => setSelectedProvince(e.target.value)}
+				onChange={(e) => {
+					setSelectedProvince(e.target.value)
+					setSelectedCity(undefined)
+				}}
 				value={selectedProvince}
 			>
 				{selectedProvince == undefined && (
@@ -78,6 +80,8 @@ export default function Home({ dataProvince }) {
 				) : (
 					<div className="h-4 bg-gray-200 rounded animate-pulse my-2" />
 				))}
+
+			{selectedProvince && selectedCity && (<HospitalList provinceId={selectedProvince} cityId={selectedCity} />)}
 		</div>
 	);
 }

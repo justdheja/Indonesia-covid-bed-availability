@@ -1,6 +1,6 @@
 const Footer = () => {
 	return (
-		<footer className="text-center bg-gray-100 space-x-5">
+		<footer className="text-center bg-gray-100 space-x-5 w-full ">
 			<a
 				href="https://github.com/satyawikananda/rs-bed-covid-indo-api"
 				target="_blank"
@@ -15,7 +15,7 @@ const Footer = () => {
 				rel="noopener noreferrer"
 				className="underline inline-block"
 			>
-				Repo
+				Repository
 			</a>
 		</footer>
 	);
