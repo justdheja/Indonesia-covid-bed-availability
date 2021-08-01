@@ -17,25 +17,50 @@ const HospitalList = ({ provinceId, cityId }) => {
   }
   return (
 		<>
-			{!loading ? (
-				<div className="px-1">
-					{hospitals.map((hospital, index) => (
-						<div
-							className="rounded bg-white text-black shadow-lg my-2 p-2 "
-							key={index}
-						>
-							<h3 className="font-bold">{hospital.name}</h3>
-							<p className="">Kamar Tersedia: {hospital.bed_availability}</p>
-							<p className="">Antrian: {hospital.queue}</p>
-							<p className="">Alamat: {hospital.address}</p>
-							<p className="">Telepon: {hospital.phone ? hospital.phone : '-'}</p>
-							<p className=" mt-2 text-sm text-gray-500">{hospital.info}</p>
-						</div>
-					))}
-				</div>
-			) : (
-				<p>loading...</p>
-			)}
+      {hospitals.length ? 
+        (!loading ? (
+          <div className="px-1">
+            {hospitals.map((hospital, index) => (
+              <div
+                className="rounded bg-white text-black shadow-lg my-2 p-2 "
+                key={index}
+              >
+                <h3 className="font-bold">{hospital.name}</h3>
+                <p className="">Kamar Tersedia: {hospital.bed_availability}</p>
+                <p className="">Antrian: {hospital.queue}</p>
+                <p className="">Alamat: {hospital.address}</p>
+                <p className="">
+                  Telepon: {hospital.phone ? hospital.phone : '-'}
+                </p>
+                <p className=" mt-2 text-sm text-gray-500">{hospital.info}</p>
+                {hospital.phone && (<div className="flex mt-2">
+                  <a href={`tel:${hospital.phone}`} className="rounded p-2 text-white bg-green-500">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
+                    </svg>
+                  </a>
+                </div>)}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-center">loading...</p>
+        )):
+          (
+            <p className="text-center">mohon maaf data tidak ditemukan</p>
+          )
+        }
 		</>
 	);
 }
