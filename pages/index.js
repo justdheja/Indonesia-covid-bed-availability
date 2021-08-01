@@ -34,8 +34,8 @@ export default function Home({ dataProvince }) {
 	}, [selectedProvince])
 	return (
 		<div>
-			<h1 className="text-center text-2xl font-bold mb-2">
-				Indonesia Covid-19 Bed Availability
+			<h1 className="text-center text-xl font-bold mb-2">
+				Ketersediaan Ruang Isolasi COVID-19 di Rumah Sakit Indonesia
 			</h1>
 
 			<select
