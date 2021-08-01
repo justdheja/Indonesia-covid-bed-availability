@@ -78,7 +78,7 @@ export default function Home({ dataProvince }) {
 							))}
 					</select>
 				) : (
-					<div className="h-4 bg-gray-200 rounded animate-pulse my-2" />
+					<div className="h-8 bg-gray-200 rounded animate-pulse my-2" />
 				))}
 
 			{selectedProvince && selectedCity && (<HospitalList provinceId={selectedProvince} cityId={selectedCity} />)}
