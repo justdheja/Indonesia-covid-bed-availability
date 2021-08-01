@@ -28,7 +28,7 @@ const HospitalList = ({ provinceId, cityId }) => {
 							<p className="">Kamar Tersedia: {hospital.bed_availability}</p>
 							<p className="">Antrian: {hospital.queue}</p>
 							<p className="">Alamat: {hospital.address}</p>
-							<p className="">No. Telfon: {hospital.phone}</p>
+							<p className="">Telepon: {hospital.phone ? hospital.phone : '-'}</p>
 							<p className=" mt-2 text-sm text-gray-500">{hospital.info}</p>
 						</div>
 					))}
